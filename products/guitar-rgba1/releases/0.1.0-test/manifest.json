@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "package_id": "guitar-rgba1-0.1.0-test",
+  "product_id": "guitar-rgba1",
+  "display_name": "LiteJam Guitar RGBA1",
+  "firmware_version": "0.1.0-test",
+  "release_channel": "test",
+  "created_at_utc": "2026-07-18T11:01:42Z",
+  "target_chip": "esp32",
+  "minimum_flash_size": 4194304,
+  "min_tool_version": "0.1.0",
+  "license_key_id": "license-test-2026-01",
+  "test_only": true,
+  "flash_settings": {
+    "baud": 460800,
+    "mode": "dio",
+    "frequency": "40m",
+    "size": "4MB"
+  },
+  "images": [
+    {
+      "name": "bootloader",
+      "address": "0x1000",
+      "file": "bootloader.bin",
+      "size": 26128,
+      "sha256": "ba863947962799fcd8cecc3e162106bdbefd003b99f0f94f97e4cd745e21904f"
+    },
+    {
+      "name": "partition-table",
+      "address": "0x8000",
+      "file": "partition-table.bin",
+      "size": 3140,
+      "sha256": "5648b0805dc3f1872d94b961c36da39330ef81377825191f5c33b71e1692f3c3"
+    },
+    {
+      "name": "ota-data-initial",
+      "address": "0xd000",
+      "file": "ota-data-initial.bin",
+      "size": 8192,
+      "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+    },
+    {
+      "name": "app",
+      "address": "0x10000",
+      "file": "app.bin",
+      "size": 524276,
+      "sha256": "6633db7fe08139db08c12faf04bfea7376eac98a692a2b234e9ac8f7ad42ca52"
+    }
+  ],
+  "health_check": {
+    "expected_product_id": "guitar-rgba1",
+    "expected_firmware_version": "0.1.0-test"
+  }
+}

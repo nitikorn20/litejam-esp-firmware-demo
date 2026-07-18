@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="title description">
+  <title id="title">LiteJam Guitar RGBA1</title>
+  <desc id="description">Orange guitar silhouette for factory product selection</desc>
+  <rect width="320" height="200" rx="24" fill="#17191c"/>
+  <circle cx="93" cy="118" r="52" fill="#ff6b35"/>
+  <circle cx="128" cy="91" r="40" fill="#ff8a5c"/>
+  <circle cx="113" cy="104" r="14" fill="#17191c"/>
+  <path d="M137 76 270 29l11 19-134 48z" fill="#d6d6d6"/>
+  <path d="m260 31 34-12 8 15-24 15z" fill="#ff6b35"/>
+  <path d="M71 109c26-10 48-8 73 7" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <text x="20" y="184" fill="#fff" font-family="Segoe UI, sans-serif" font-size="18">GUITAR RGBA1 · ORANGE</text>
+</svg>

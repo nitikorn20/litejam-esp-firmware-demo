@@ -1,0 +1,25 @@
+name: Validate firmware catalog
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python tools/validate_manifest.py
+      - name: Reject committed private keys
+        shell: bash
+        run: |
+          if grep -R --line-number --exclude-dir=.git -- "BEGIN .*PRIVATE KEY" .; then
+            echo "Private key material must never be committed."
+            exit 1
+          fi
