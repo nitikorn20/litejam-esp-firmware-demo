@@ -1,0 +1,2 @@
+# Test-only overlay. Never package or release the resulting image.
+CONFIG_LITEJAM_FORCE_ROLLBACK_TEST=y

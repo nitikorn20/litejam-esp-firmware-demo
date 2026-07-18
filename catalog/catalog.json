@@ -1,20 +1,48 @@
 {
-  "schema_version": 1,
-  "generated_at_utc": "2026-07-18T00:00:00Z",
+  "schema_version": 2,
+  "generated_at_utc": "2026-07-18T19:05:00Z",
   "products": [
     {
       "product_id": "guitar-rgba1",
       "display_name": "LiteJam Guitar RGBA1",
       "color_hex": "#FF6B35",
       "description": "Public test profile: BLE, OTA and license demo only.",
-      "releases": [
+      "hardware_profiles": [
         {
-          "version": "0.1.0-test",
-          "channel": "test",
+          "hardware_profile_id": "esp32s3-16m-v1",
+          "display_name": "ESP32-S3 · 16 MB · OTA 2×6 MB",
+          "target_chip": "esp32s3",
+          "flash_size_bytes": 16777216,
+          "firmware_id": "guitar-rgba1-esp32s3",
           "recommended": true,
-          "bundled_asset_path": null,
-          "package_url": "https://github.com/nitikorn20/litejam-esp-firmware-demo/releases/download/guitar-rgba1-v0.1.0-test/guitar-rgba1-v0.1.0-test.zip",
-          "package_sha256": "8d1980f9e119b5f5ab8d75d5f8acb2fe43a20e73b963210c1a4a0512ba880372"
+          "releases": [
+            {
+              "version": "0.1.0-test",
+              "channel": "test",
+              "recommended": true,
+              "bundled_asset_path": null,
+              "package_url": "https://github.com/nitikorn20/litejam-esp-firmware-demo/releases/download/guitar-rgba1-esp32s3-16m-v1-v0.1.0-test/guitar-rgba1-esp32s3-16m-v1-v0.1.0-test.zip",
+              "package_sha256": "5aa7906ac6cbdd5cff9c3a303e5903957a7a127a3b67aaa3c0437bf6def2fa07"
+            }
+          ]
+        },
+        {
+          "hardware_profile_id": "esp32-4m-v1",
+          "display_name": "ESP32 · 4 MB · Legacy test",
+          "target_chip": "esp32",
+          "flash_size_bytes": 4194304,
+          "firmware_id": "guitar-rgba1-esp32",
+          "recommended": false,
+          "releases": [
+            {
+              "version": "0.1.0-test",
+              "channel": "test",
+              "recommended": true,
+              "bundled_asset_path": null,
+              "package_url": "https://github.com/nitikorn20/litejam-esp-firmware-demo/releases/download/guitar-rgba1-v0.1.0-test/guitar-rgba1-v0.1.0-test.zip",
+              "package_sha256": "8d1980f9e119b5f5ab8d75d5f8acb2fe43a20e73b963210c1a4a0512ba880372"
+            }
+          ]
         }
       ]
     }

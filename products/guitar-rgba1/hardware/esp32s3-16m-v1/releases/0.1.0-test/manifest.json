@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "package_id": "guitar-rgba1-esp32s3-16m-v1-0.1.0-test",
+  "product_id": "guitar-rgba1",
+  "hardware_profile_id": "esp32s3-16m-v1",
+  "firmware_id": "guitar-rgba1-esp32s3",
+  "display_name": "LiteJam Guitar RGBA1",
+  "firmware_version": "0.1.0-test",
+  "release_channel": "test",
+  "created_at_utc": "2026-07-18T18:58:52Z",
+  "target_chip": "esp32s3",
+  "minimum_flash_size": 16777216,
+  "expected_flash_size": 16777216,
+  "min_tool_version": "0.2.0",
+  "license_key_id": "license-test-2026-01",
+  "test_only": true,
+  "flash_settings": {
+    "baud": 460800,
+    "mode": "dio",
+    "frequency": "40m",
+    "size": "16MB"
+  },
+  "ota": {
+    "scheme": "dual-slot",
+    "slot_size_bytes": 6291456,
+    "rollback_enabled": true,
+    "signed": true,
+    "signing_key_id": "ota-test-s3-rsa3072-2026-01"
+  },
+  "images": [
+    {
+      "name": "bootloader",
+      "address": "0x0",
+      "file": "bootloader.bin",
+      "size": 21040,
+      "sha256": "293be1e7f0bfc50584960989c893d69e7ff8112fa9ddbc706256ab707d03a43a"
+    },
+    {
+      "name": "partition-table",
+      "address": "0x8000",
+      "file": "partition-table.bin",
+      "size": 3072,
+      "sha256": "190e662099fcc47cd1e484ac32ee5b771fd003a4eb23d8471409e054388b8562"
+    },
+    {
+      "name": "ota-data-initial",
+      "address": "0xd000",
+      "file": "ota-data-initial.bin",
+      "size": 8192,
+      "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+    },
+    {
+      "name": "app",
+      "address": "0x10000",
+      "file": "app.bin",
+      "size": 593920,
+      "sha256": "aa32bc7239ca462c997ca017f99fea9ac02386f6023ad7d0194c14dbba233b73"
+    }
+  ],
+  "health_check": {
+    "expected_product_id": "guitar-rgba1",
+    "expected_firmware_version": "0.1.0-test"
+  }
+}

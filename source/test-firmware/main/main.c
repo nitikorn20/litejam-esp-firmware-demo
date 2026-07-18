@@ -3,6 +3,9 @@
 
 #include "esp_log.h"
 #include "esp_ota_ops.h"
+#include "esp_system.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 #include "gatt_server.h"
 #include "host/ble_hs.h"
 #include "host/util/util.h"
@@ -98,12 +101,18 @@ static void confirm_or_report_rollback(void)
     esp_ota_img_states_t state;
     if (esp_ota_get_state_partition(running, &state) == ESP_OK &&
         state == ESP_OTA_IMG_PENDING_VERIFY) {
+#if CONFIG_LITEJAM_FORCE_ROLLBACK_TEST
+        ESP_LOGW(TAG, "FORCED ROLLBACK TEST: rebooting pending image without validation");
+        vTaskDelay(pdMS_TO_TICKS(1000));
+        esp_restart();
+#else
         if (license_verify_public_key_ready()) {
             ESP_ERROR_CHECK(esp_ota_mark_app_valid_cancel_rollback());
             ESP_LOGI(TAG, "OTA image marked valid after startup self-check");
         } else {
             ESP_LOGE(TAG, "License public key self-check failed; rollback remains pending");
         }
+#endif
     }
 }
 
