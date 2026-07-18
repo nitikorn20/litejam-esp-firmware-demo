@@ -19,7 +19,8 @@ jobs:
       - name: Reject committed private keys
         shell: bash
         run: |
-          if grep -R --line-number --exclude-dir=.git -- "BEGIN .*PRIVATE KEY" .; then
+          private_key_pattern="BEGIN .*PRIV""ATE KEY"
+          if grep -R --line-number --exclude-dir=.git -- "$private_key_pattern" .; then
             echo "Private key material must never be committed."
             exit 1
           fi
