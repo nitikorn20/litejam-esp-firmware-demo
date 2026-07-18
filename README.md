@@ -20,6 +20,12 @@ signed test OTA images. The former ESP32 4 MB release remains available as a
 separate legacy profile. Future products and MCU/capacity variants get new
 folders; older releases remain immutable so the factory can roll back.
 
+The ESP32-S3 profile was physically tested on a 16 MB ESP32-S3 (revision 0.2):
+serial flash/verify, real BLE License binding/signature rejection, signed OTA,
+unsigned-image rejection and bootloader rollback all passed. The NimBLE host
+stack is explicitly 8 KB so RSA-3072 verification can finish inside the BLE
+callback without overflowing the ESP-IDF default stack.
+
 The downloadable package is attached to the matching GitHub Release. The
 catalog stores its exact SHA-256 so the Flash Tool can reject corrupt or
 unexpected downloads.

@@ -10,6 +10,7 @@ Stable profile ID: `esp32s3-16m-v1`
 - Reserved factory data: 64 KB, read-only to normal partition APIs
 - General storage: 3.8125 MB
 - Coredump: 64 KB
+- NimBLE host stack: 8 KB (required by RSA-3072 OTA verification)
 
 The private OTA test key is local and gitignored. Production private keys must
 live in a secret manager or isolated signing system and must never be copied
@@ -22,3 +23,7 @@ Build with the Windows ESP-IDF lane:
 idf.py -B build-win-esp32s3-16m-v1 -D SDKCONFIG="profiles/esp32s3-16m-v1/sdkconfig.generated" -D SDKCONFIG_DEFAULTS="profiles/esp32s3-16m-v1/sdkconfig.defaults" set-target esp32s3
 idf.py -B build-win-esp32s3-16m-v1 build
 ```
+
+For a lab-only rollback proof, add
+`profiles/esp32s3-16m-v1/sdkconfig.rollback-test.defaults` to
+`SDKCONFIG_DEFAULTS`. Never publish the resulting forced-rollback image.

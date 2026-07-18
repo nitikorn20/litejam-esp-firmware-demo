@@ -8,4 +8,12 @@ config LITEJAM_FIRMWARE_ID
     string "Stable firmware lineage ID"
     default "unconfigured-firmware"
 
+config LITEJAM_FORCE_ROLLBACK_TEST
+    bool "Force an OTA rollback after boot (test images only)"
+    default n
+    help
+        Never enable this for a production image. It deliberately reboots an
+        OTA image while it is pending verification so the bootloader must fall
+        back to the previously validated slot.
+
 endmenu

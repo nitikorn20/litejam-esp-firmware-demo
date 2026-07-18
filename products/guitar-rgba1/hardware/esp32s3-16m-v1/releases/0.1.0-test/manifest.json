@@ -7,7 +7,7 @@
   "display_name": "LiteJam Guitar RGBA1",
   "firmware_version": "0.1.0-test",
   "release_channel": "test",
-  "created_at_utc": "2026-07-18T16:58:21Z",
+  "created_at_utc": "2026-07-18T18:58:52Z",
   "target_chip": "esp32s3",
   "minimum_flash_size": 16777216,
   "expected_flash_size": 16777216,
@@ -54,7 +54,7 @@
       "address": "0x10000",
       "file": "app.bin",
       "size": 593920,
-      "sha256": "92fd0db0fb8ef70ce8aeea5f673126c77c9aff9934dc9c91b8e81fc92a468978"
+      "sha256": "aa32bc7239ca462c997ca017f99fea9ac02386f6023ad7d0194c14dbba233b73"
     }
   ],
   "health_check": {
