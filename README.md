@@ -1,22 +1,24 @@
 # LiteJam ESP Firmware Demo
 
 Public, test-only firmware catalog for the LiteJam flashing-tool prototype.
-It demonstrates how multiple products and historical firmware versions are
-separated without publishing commercial product features.
+Catalog schema v2 separates `Product → Hardware profile → Firmware version`
+without publishing commercial product features.
 
 ## Repository layout
 
 ```text
 catalog/catalog.json
 products/<product-id>/product.svg
-products/<product-id>/releases/<version>/manifest.json
-products/<product-id>/releases/<version>/*.bin
+products/<product-id>/hardware/<hardware-profile-id>/releases/<version>/manifest.json
+products/<product-id>/hardware/<hardware-profile-id>/releases/<version>/*.bin
 source/test-firmware/
 ```
 
-Current product: `guitar-rgba1`, color `#FF6B35`, firmware
-`0.1.0-test`. Future products get a new folder; older releases remain under
-their own version folder so the factory can roll back without replacing files.
+Current recommended profile: `guitar-rgba1 / esp32s3-16m-v1`, built for
+ESP32-S3 with exactly 16 MB flash, dual 6 MB OTA slots, rollback and RSA-3072
+signed test OTA images. The former ESP32 4 MB release remains available as a
+separate legacy profile. Future products and MCU/capacity variants get new
+folders; older releases remain immutable so the factory can roll back.
 
 The downloadable package is attached to the matching GitHub Release. The
 catalog stores its exact SHA-256 so the Flash Tool can reject corrupt or

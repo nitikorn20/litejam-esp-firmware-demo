@@ -1,0 +1,11 @@
+menu "LiteJam firmware identity"
+
+config LITEJAM_HARDWARE_PROFILE_ID
+    string "Stable hardware profile ID"
+    default "unconfigured-hardware"
+
+config LITEJAM_FIRMWARE_ID
+    string "Stable firmware lineage ID"
+    default "unconfigured-firmware"
+
+endmenu

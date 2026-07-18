@@ -11,5 +11,6 @@ idf_component_register(
     json
     mbedtls
     nvs_flash
+    spi_flash
   EMBED_TXTFILES "license_test_public.pem"
 )

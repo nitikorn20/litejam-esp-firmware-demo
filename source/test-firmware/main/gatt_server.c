@@ -7,6 +7,7 @@
 #include "esp_log.h"
 #include "esp_mac.h"
 #include "esp_ota_ops.h"
+#include "esp_flash.h"
 #include "host/ble_att.h"
 #include "host/ble_hs.h"
 #include "host/ble_uuid.h"
@@ -14,6 +15,7 @@
 #include "os/os_mbuf.h"
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
+#include "sdkconfig.h"
 
 #define UUID_LITEJAM_SERVICE 0xfff0
 #define UUID_DEVICE_INFO 0xfff1
@@ -74,17 +76,25 @@ static int copy_write(struct os_mbuf *input, uint8_t *destination, size_t capaci
 static int read_device_info(struct ble_gatt_access_ctxt *context)
 {
     char mac[13];
-    char response[320];
+    char response[480];
+    uint32_t flash_size = 0;
     factory_mac_string(mac);
+    ESP_ERROR_CHECK(esp_flash_get_physical_size(esp_flash_default_chip, &flash_size));
     snprintf(
         response,
         sizeof(response),
         "{\"factory_mac\":\"%s\",\"product_id\":\"%s\","
+        "\"hardware_profile_id\":\"%s\",\"firmware_id\":\"%s\","
+        "\"target_chip\":\"%s\",\"flash_size_bytes\":%lu,"
         "\"firmware_version\":\"%s\",\"protocol_version\":%d,"
         "\"license_schema_version\":%d,\"license_key_id\":\"%s\","
         "\"capabilities\":[\"basic_demo\",\"premium_demo\",\"ble_ota\",\"signed_ota\"]}",
         mac,
         PRODUCT_ID,
+        CONFIG_LITEJAM_HARDWARE_PROFILE_ID,
+        CONFIG_LITEJAM_FIRMWARE_ID,
+        CONFIG_IDF_TARGET,
+        (unsigned long)flash_size,
         FIRMWARE_VERSION,
         PROTOCOL_VERSION,
         LICENSE_SCHEMA_VERSION,
